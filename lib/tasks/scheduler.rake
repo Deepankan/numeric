@@ -1,8 +1,6 @@
 require 'rest-client'
 
-namespace :rs do
-  desc "Import Data from API"
-  task :pull_data => [:environment] do
+task :pull_data => [:environment] do
     api = Api.find_by_url("api.amp.cisco.com/v1/computers")
     base_url = "#{SiteSetting.last.api_client_id}:#{SiteSetting.last.api_key}@"
     query_params = { params: { offset: api .offset, limit: api.limit }}
@@ -30,4 +28,3 @@ namespace :rs do
       end
     end
   end
-end
