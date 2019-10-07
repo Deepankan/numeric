@@ -94,12 +94,13 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { host: 'numeric-api.herokuapp.com' }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    user_name:      ENV['EMAIL'],
-    password:       ENV['PASSWORD'],
-    domain:         "numeric-api.herokuapp.com",
-    address:       'smtp.gmail.com',
-    port:          '587',
-    authentication: :plain,
-    enable_starttls_auto: true
-  }
+  address:              'smtp.gmail.com',
+  port:                 587,
+  domain:               'gmail.com',
+  user_name:            'deepankan.chitragupt@gmail.com',
+  password:             'Deepankan786_',
+  authentication:       'plain'
+  # enable_starttls_auto: true
+  # ^ ^ remove this option ^ ^
+}
 end
