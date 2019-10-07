@@ -37,9 +37,8 @@ gem 'bootstrap', '~> 4.0.0'
 #gem 'bootstrap-sass', '3.2.0.2'
 gem 'jquery-rails'
 
- gem 'rest-client'
- gem 'json-prettyprint', '~> 0.0.2'
- gem 'will_paginate', '~> 3.1.0'
+gem 'rest-client'
+gem 'will_paginate', '~> 3.1.0'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
