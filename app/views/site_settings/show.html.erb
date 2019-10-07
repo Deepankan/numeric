@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Api client:</strong>
+  <%= @site_setting.api_client_id %>
+</p>
+
+<p>
+  <strong>Api key:</strong>
+  <%= @site_setting.api_key %>
+</p>
+
+<%= link_to 'Edit', edit_site_setting_path(@site_setting) %> |
+<%= link_to 'Back', site_settings_path %>

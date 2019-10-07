@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Url:</strong>
+  <%= @api.url %>
+</p>
+
+<p>
+  <strong>Offset:</strong>
+  <%= @api.offset %>
+</p>
+
+<p>
+  <strong>Limit:</strong>
+  <%= @api.limit %>
+</p>
+
+<%= link_to 'Edit', edit_api_path(@api) %> |
+<%= link_to 'Back', apis_path %>

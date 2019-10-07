@@ -1,0 +1,120 @@
+<div class="row">
+  <div class="col-md-12">
+    <h2 class="h2-display">API Data </h2>(<p class='p-display notice'>Scheduler is running background, it will update the data in every 30 mints. Please refresh the page at regular interval</p>)
+  </div>
+  <div class="col-md-12">
+
+  </div>
+</div>
+
+<% @computers.each do |computer|%>
+  <button type="button" class="collapsible"><b><%= computer.connector_guid %></b></button>
+  <div class="content">
+    <div class="row bottom">
+      <div class="col-md-3">Connector Guid</div>
+      <div class="col-md-9"><b><%= computer.connector_guid %></b></div>
+    </div>
+    <div class="row bottom">
+      <div class="col-md-3">HostName</div>
+      <div class="col-md-9"><b><%= computer.hostname %></b></div>
+    </div>
+    <div class="row bottom">
+      <div class="col-md-3">Active</div>
+      <div class="col-md-9"><b><%= computer.active %></b></div>
+    </div>
+    <div class="row bottom">
+      <div class="col-md-3"></div><div class="col-md-3"><h5>Link</h5></div><div class='col-md-6'></div>
+      <% computer.links.each do |key, value|%>
+        <div class="col-md-3"><%= key%></div>
+        <div class="col-md-9"><b><%= value %></b></div>
+      <% end %>
+    </div>
+    <div class="row bottom">
+      <div class="col-md-3">Connector Version</div>
+      <div class="col-md-9"><b><%= computer.connector_version %></b></div>
+    </div>
+    <div class="row bottom">
+      <div class="col-md-3">Operating System</div>
+      <div class="col-md-9"><b><%= computer.operating_system %></b></div>
+    </div>
+    <div class="row bottom">
+      <div class="col-md-3"></div><div class="col-md-3"><h5>Internal IP</h5></div><div class='col-md-6'></div>
+      <% computer.internal_ips.each do |internal_ip|%>
+        <div class="col-md-3">IP</div>
+        <div class="col-md-9"><b><%= internal_ip.ips %></b></div>
+      <% end %>
+    </div>
+    <div class="row bottom">
+      <div class="col-md-3">External IP</div>
+      <div class="col-md-9"><b><%= computer.external_ip %></b></div>
+    </div>
+    <div class="row bottom">
+      <div class="col-md-3"></div><div class="col-md-3"><h5>Policy</h5></div><div class='col-md-6'></div>
+      <% computer.policy.each do |key, value|%>
+        <div class="col-md-3"><%= key%></div>
+        <div class="col-md-9"><b><%= value %></b></div>
+      <% end %>
+    </div>
+    <div class="row bottom">
+      <div class="col-md-3"></div><div class="col-md-3"><h5>Isolation</h5></div><div class='col-md-6'></div>
+      <% if computer.isolation.present? %>
+        <% computer.isolation.each do |key, value|%>
+          <div class="col-md-3"><%= key%></div>
+          <div class="col-md-9"><b><%= value %></b></div>
+        <% end %>
+      <% end %>
+    </div>
+    <div class="row bottom">
+      <div class="col-md-3">Group GUID</div>
+      <div class="col-md-9"><b><%= computer.group_guid %></b></div>
+    </div>
+    <div class="row bottom">
+      <div class="col-md-3">Install Date</div>
+      <div class="col-md-9"><b><%= computer.install_date %></b></div>
+    </div>
+    <div class="row bottom">
+      <div class="col-md-3"></div><div class="col-md-3"><h5>Network Address</h5></div><div class='col-md-6'></div>
+      <% computer.network_addresses.each do |key, value|%>
+        <div class="col-md-3"><%= key%></div>
+        <div class="col-md-9"><b><%= value %></b></div>
+      <% end %>
+    </div>
+    <div class="row bottom">
+      <div class="col-md-3"></div><div class="col-md-3"><h5>Faults</h5></div><div class='col-md-6'></div>
+      <% computer.faults.each do |value|%>
+        <div class="col-md-3">Fault</div>
+        <div class="col-md-9"><b><%= falut %></b></div>
+      <% end %>
+    </div>
+    <div class="row bottom">
+      <div class="col-md-3"></div><div class="col-md-3"><h5>Internal IPS</h5></div><div class='col-md-6'></div>
+      <% computer.internal_ips.each do |internal_ip|%>
+        <div class="col-md-3">IP</div>
+        <div class="col-md-9"><b><%= internal_ip.ips %></b></div>
+      <% end %>
+    </div>
+  </div>
+
+<% end %>
+<div class="digg_pagination">
+  <%= will_paginate @computers, :container => false %>
+</div>
+
+<script type="text/javascript">
+  $(function(){
+  var coll = document.getElementsByClassName("collapsible");
+  var i;
+
+  for (i = 0; i < coll.length; i++) {
+    coll[i].addEventListener("click", function() {
+      this.classList.toggle("active");
+      var content = this.nextElementSibling;
+      if (content.style.display === "block") {
+        content.style.display = "none";
+      } else {
+        content.style.display = "block";
+      }
+    });
+  }
+});
+</script>

@@ -1,0 +1,39 @@
+.global-wrapper {
+  padding: 30px;
+}
+
+.pull-right {
+  float: right;
+}
+
+.pull-left {
+  float: left;
+}
+
+.bottom {
+  margin-bottom: 15px;
+}
+
+.notice {
+  color: #ff0000;
+}
+
+.h2-display {
+  display: inline-block;
+}
+
+.p-display {
+  display: contents;
+}
+
+.display-flex {
+  display: flex;
+}
+
+.login-body {
+  background-image: image-url('/assets/background_image');
+}
+
+.user-body {
+  background-color: aliceblue;
+}

@@ -1,0 +1,28 @@
+<div class="wrapper fadeInDown">
+  <div id="formContent">
+    <!-- Tabs Titles -->
+    <!-- Icon -->
+    <div class="fadeIn first">
+      <img src="/assets/login.png" id="icon" alt="User Icon" />
+    </div>
+
+    <!-- Login Form -->
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
+      <%= f.text_field :email, id: 'login', class: 'fadeIn second', placeholder: 'Email', autofocus: true %>
+      <% if @minimum_password_length %>
+      <em>(<%= @minimum_password_length %> characters minimum)</em>
+      <% end %>
+      <%= f.password_field :password, id: 'password', class: 'fadeIn third', placeholder: 'Password', autocomplete: "off" %>
+      <%= f.password_field :password_confirmation, id: 'password', class: 'fadeIn third', placeholder: 'Password Confirmation', autocomplete: "off" %>
+      <div class="row">
+        <div class="col-md-6">
+          <%= f.submit "Sign Up", class: 'fadeIn fourth' %>
+        </div>
+        <div class="col-md-5">
+          <%= link_to "Sign In", new_session_path(resource_name), class: 'fadeIn fourth button' %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

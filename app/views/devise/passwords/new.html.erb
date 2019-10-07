@@ -1,0 +1,26 @@
+<div class="row">
+<div class="col-md-6">
+    <h2>Forgot your password?</h2>
+  </div>
+</div>
+
+<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+  <div class="row">
+    <div class="col-md-1">
+      <%= f.label :email %>
+    </div>
+    <div class="col-md-11">
+      <%= f.text_field :email, id: :email %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6">
+      <%= f.submit "Submit", class: 'pull-right' %>
+    </div>
+    <div class="col-md-6">
+      <%= link_to 'Back', authenticated_root_path, class: 'fadeIn fourth button' %>
+    </div>
+  </div>
+<% end %>

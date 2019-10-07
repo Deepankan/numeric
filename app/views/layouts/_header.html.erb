@@ -1,0 +1,15 @@
+<div class="header">
+  <a href="#default" class="logo">CompanyLogo</a>
+  <div class="header-left">
+    <%= link_to "Home", authenticated_root_path, class: params[:controller] == 'dashboards' ? 'active' : '' %>
+    <% if User.user_types[current_user.user_type] == User.user_types['admin']%>
+      <%= link_to "Site Setting", site_settings_path, class: params[:controller] == 'site_settings' ? 'active' : '' %>
+      <%= link_to "API Setting", apis_path, class: params[:controller] == 'apis' ? 'active' : '' %>
+    <% end %>
+  </div>
+  <div class="header-right display-flex">
+    <%= link_to current_user.email, "#" %></p>
+    <%= link_to "Reset Password", edit_user_registration_path %>
+    <%= link_to('Logout', destroy_user_session_path, method: :delete) %>
+  </div>
+</div>

@@ -1,0 +1,29 @@
+<div class="row">
+  <div class="col-md-6">
+    <h2>Site Setting</h2>
+  </div>
+  <div class="col-md-6">
+    <%= link_to "New", new_site_setting_path, class: 'fadeIn fourth button pull-right' %>
+  </div>
+</div>
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Api Client Key</th>
+        <th>Api Key</th>
+        <th colspan="2" >Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @site_settings.each do |site_setting|%>
+        <tr>
+          <td><%= site_setting.api_client_id %></td>
+          <td><%= site_setting.api_key %></td>
+          <td>
+            <%= link_to 'Edit', edit_site_setting_path(site_setting) %>
+          </td>
+          <td><%= link_to 'Destroy', site_setting, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>

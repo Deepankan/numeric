@@ -1,0 +1,39 @@
+<%= form_with(model: site_setting, local: true) do |form| %>
+  <% if site_setting.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(site_setting.errors.count, "error") %> prohibited this site_setting from being saved:</h2>
+
+      <ul>
+      <% site_setting.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="row">
+    <div class="col-md-1">
+      <%= form.label :api_client_id %>
+    </div>
+    <div class="col-md-11">
+      <%= form.text_field :api_client_id, id: :site_setting_api_client_id %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-1">
+      <%= form.label :api_key %>
+    </div>
+    <div class="col-md-11">
+      <%= form.text_field :api_key, id: :site_setting_api_key %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6">
+      <%= form.submit params[:action] == 'new' ? 'Create' : 'Update', class: 'pull-right' %>
+    </div>
+    <div class="col-md-6">
+      <%= link_to 'Back', site_settings_path, class: 'fadeIn fourth button' %>
+    </div>
+  </div>
+<% end %>
